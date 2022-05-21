@@ -1,0 +1,64 @@
+{
+  "name": "curlconverter-js",
+  "description": "A TypeScript npm package skeleton/starter project with microbundle, node:test and prettier",
+  "version": "0.0.1",
+  "source": "src/index.ts",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.modern.module.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "microbundle",
+    "typescript"
+  ],
+  "files": [
+    "dist/**.js*",
+    "dist/**/*.ts"
+  ],
+  "scripts": {
+    "build": "microbundle --define PKG_VERSION=$npm_package_version",
+    "watch": "microbundle watch --define PKG_VERSION=$npm_package_version",
+    "test": "node --test test",
+    "lint": "prettier src test -c",
+    "format": "prettier src test --write",
+    "prepack": "rm -rf dist && npm run build",
+    "release": "npm run prepack && source .env && npx np",
+    "publish": "npm publish"
+  },
+  "devDependencies": {
+    "@types/nunjucks": "^3.2.1",
+    "microbundle": "^0.15.0",
+    "prettier": "^2.6.2",
+    "xlsx": "^0.18.5"
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buithaibinh/microbundle-ts-pkg.git"
+  },
+  "author": "Binh Bui",
+  "bugs": {
+    "url": "https://github.com/buithaibinh/microbundle-ts-pkg/issues"
+  },
+  "homepage": "https://github.com/buithaibinh/microbundle-ts-pkg#readme",
+  "dependencies": {
+    "@curlconverter/tree-sitter-bash": "^0.0.2",
+    "nunjucks": "^3.2.3",
+    "query-string": "^7.1.1",
+    "tree-sitter": "^0.20.0",
+    "tree-sitter-bash": "^0.19.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "*"
+  }
+}
